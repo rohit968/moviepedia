@@ -1,0 +1,13 @@
+.singlemovie__container {
+  z-index: 1;
+}
+
+.m {
+  opacity: 0.2;
+  z-index: 2;
+}
+
+.singlemovie__container > h1 {
+  opacity: 1 !important;
+  color: white;
+}

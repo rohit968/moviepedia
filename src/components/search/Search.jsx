@@ -32,23 +32,16 @@ const Search = ({ input }) => {
         );
         setSearchMovies(request.data.results);
       }
+      fetchData();
     }
-  }, [loc]);
-
-  //   useEffect(() => {
-  //     if (loc && !searchMovies.length) {
-  //       search(querySearch).then((data) => {
-  //         setSearchMovies(data.results);
-  //       });
-  //     }
-  //   }, [searchMovies, loc]);
+  }, [loc, searchMovies]);
 
   return (
     <div className="search">
-      <h1>Showing Results for : {input}</h1>
+      <h1>Showing Results for : {loc}</h1>
       <FlipMove>
         {searchMovies.map((movie) => {
-          return <Moviecard movie={movie} />;
+          return <Moviecard key={movie.id} movie={movie} />;
         })}
       </FlipMove>
     </div>

@@ -4,6 +4,7 @@ import Home from "./components/home/Home";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Search from "./components/search/Search";
+import SingleMovie from "./components/singlemovie/SingleMovie";
 
 function App() {
   const [input, setInput] = useState("");
@@ -14,6 +15,9 @@ function App() {
         <Header setInput={setInput} />
 
         <Switch>
+          <Route path="/details">
+            <SingleMovie />
+          </Route>
           <Route path="/:q">
             <Search input={input} />
           </Route>

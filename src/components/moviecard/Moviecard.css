@@ -1,0 +1,55 @@
+.moviecard {
+  color: white;
+  width: 350px;
+  height: 300px;
+  padding: 20px;
+  transition: transform 100ms;
+}
+
+.moviecard:hover {
+  transform: scale(1.09);
+  cursor: pointer;
+}
+
+.moviecard__container {
+  background-color: #111;
+  -webkit-box-shadow: 0 10px 6px -6px black;
+  -moz-box-shadow: 0 10px 6px -6px black;
+  box-shadow: 0 10px 6px -6px black;
+}
+
+.moviecard__container > img {
+  height: 200px;
+  object-fit: fill;
+  width: 350px;
+}
+
+.moviecard__contents {
+  padding: 20px;
+  opacity: 0.7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.moviecard__contentsTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 40px;
+}
+
+.moviecard__contentsTitle > h2 {
+  font-size: 16px;
+}
+
+.moviecard__contentsTitle > p {
+  font-size: 12px;
+}
+
+.moviecard__contentsRating {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 15%;
+}

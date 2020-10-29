@@ -12,7 +12,7 @@ const Navbar = ({ setOption }) => {
   return (
     <div className="navbar">
       <h2
-        className={active ? "navbar_active" : null}
+        className={active ? "navbar__active" : null}
         onClick={() => {
           return setOption(requests.fetchTrending), toggleClass;
         }}
@@ -20,7 +20,7 @@ const Navbar = ({ setOption }) => {
         Now Playing
       </h2>
       <h2
-        className={active ? "navbar_active" : null}
+        className={active ? "navbar__active" : null}
         onClick={() => {
           return setOption(requests.fetchUpcoming), toggleClass;
         }}
@@ -28,7 +28,7 @@ const Navbar = ({ setOption }) => {
         Upcoming
       </h2>
       <h2
-        className={active ? "navbar_active" : null}
+        className={active ? "navbar__active" : null}
         onClick={() => {
           return setOption(requests.fetchTopRated), toggleClass;
         }}
@@ -36,7 +36,7 @@ const Navbar = ({ setOption }) => {
         Top Rated
       </h2>
       <h2
-        className={active ? "navbar_active" : null}
+        className={active ? "navbar__active" : null}
         onClick={() => {
           return setOption(requests.fetchPopular), toggleClass;
         }}

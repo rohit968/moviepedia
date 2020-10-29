@@ -1,0 +1,11 @@
+.search {
+  color: white;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.search > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

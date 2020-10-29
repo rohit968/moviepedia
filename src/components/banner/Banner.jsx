@@ -29,17 +29,13 @@ const Banner = () => {
     fetchGenre();
   }, []);
 
-  const ids = trendingMovies.genre_ids;
-  console.log(ids);
-
   function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   }
 
-  const image = `${image_url}${trendingMovies.backdrop_path}`
-    ? `${image_url}${trendingMovies.backdrop_path}`
-    : `${image_url}${trendingMovies.poster_path}`;
-
+  const image = `${image_url}${
+    trendingMovies.backdrop_path || trendingMovies.poster_path
+  }`;
   return (
     <header
       className="banner"

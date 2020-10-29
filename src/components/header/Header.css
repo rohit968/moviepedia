@@ -47,6 +47,10 @@
   width: 250px;
 }
 
+.header__searchBarIcon {
+  cursor: pointer;
+}
+
 .header__button {
   background-color: black !important;
   color: white !important;

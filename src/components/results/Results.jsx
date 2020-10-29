@@ -17,8 +17,6 @@ const Results = ({ option }) => {
     fetchMovies();
   }, [option]);
 
-  console.log(movies);
-
   return (
     <div className="results">
       <FlipMove>

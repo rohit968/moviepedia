@@ -11,10 +11,38 @@ const Navbar = ({ setOption }) => {
 
   return (
     <div className="navbar">
-      <h2 onClick={() => setOption(requests.fetchTrending)}>Now Playing</h2>
-      <h2 onClick={() => setOption(requests.fetchUpcoming)}>Upcoming</h2>
-      <h2 onClick={() => setOption(requests.fetchTopRated)}>Top Rated</h2>
-      <h2 onClick={() => setOption(requests.fetchPopular)}>Popular</h2>
+      <h2
+        className={active ? "navbar_active" : null}
+        onClick={() => {
+          return setOption(requests.fetchTrending), toggleClass;
+        }}
+      >
+        Now Playing
+      </h2>
+      <h2
+        className={active ? "navbar_active" : null}
+        onClick={() => {
+          return setOption(requests.fetchUpcoming), toggleClass;
+        }}
+      >
+        Upcoming
+      </h2>
+      <h2
+        className={active ? "navbar_active" : null}
+        onClick={() => {
+          return setOption(requests.fetchTopRated), toggleClass;
+        }}
+      >
+        Top Rated
+      </h2>
+      <h2
+        className={active ? "navbar_active" : null}
+        onClick={() => {
+          return setOption(requests.fetchPopular), toggleClass;
+        }}
+      >
+        Popular
+      </h2>
     </div>
   );
 };

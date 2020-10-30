@@ -5,6 +5,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Search from "./components/search/Search";
 import SingleMovie from "./components/singlemovie/SingleMovie";
+import Footer from "./components/footer/Footer";
 
 function App() {
   const [input, setInput] = useState("");
@@ -25,6 +26,8 @@ function App() {
             <Home />
           </Route>
         </Switch>
+
+        <Footer />
       </Router>
     </div>
   );

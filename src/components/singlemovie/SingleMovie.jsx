@@ -7,6 +7,10 @@ import "./SingleMovie.css";
 
 const SingleMovie = () => {
   const [singleMovie, setSingleMovie] = useState({});
+  const [data, setData] = useState({
+    year: null,
+    genres: null,
+  });
 
   const loc = queryString.parse(useLocation().search).d;
 
@@ -30,6 +34,28 @@ const SingleMovie = () => {
   const title =
     singleMovie?.title || singleMovie?.name || singleMovie?.original_name;
 
+  const overview = singleMovie.overview;
+
+  // const genres = singleMovie.genres;
+  // console.log(genres);
+
+  // genres.map((genre) => {
+  //   console.log(genre.name);
+  // });
+
+  useEffect(() => {
+    if (
+      (singleMovie?.first_air_date || singleMovie?.release_date) &&
+      singleMovie.genres
+    ) {
+      const year = (
+        singleMovie?.first_air_date || singleMovie?.release_date
+      ).split("-")[0];
+      const genres = singleMovie.genres;
+      setData({ year, genres });
+    }
+  }, [singleMovie]);
+
   // const year = (singleMovie?.first_air_date || singleMovie?.release_date).split(
   //   "-"
   // )[0];
@@ -39,15 +65,6 @@ const SingleMovie = () => {
   return (
     <div
       className="singlemovie"
-      //   background:
-      //     /* top, transparent black, faked with gradient */
-      //     linear-gradient(
-      //       rgba(0, 0, 0, 0.7),
-      //       rgba(0, 0, 0, 0.7)
-      //     ),
-      //     /* bottom, image */
-      //     url(http://fc02.deviantart.net/fs71/i/2011/274/6/f/ocean__sky__stars__and_you_by_muddymelly-d4bg1ub.png);
-      // }
       style={{
         backgroundSize: "cover",
         backgroundImage: `linear-gradient(
@@ -60,8 +77,13 @@ const SingleMovie = () => {
       <div className="singlemovie__container">
         <div className="singlemovie__movieDetails">
           <h1>{title}</h1>
-          <p></p>
+          <p>{overview}</p>
+          {data.genres.map((genre) => {
+            return <p>{genre}</p>;
+          })}
         </div>
+        <div className="bottom"></div>
+        <div className="genres"></div>
       </div>
     </div>
   );

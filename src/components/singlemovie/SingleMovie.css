@@ -8,9 +8,33 @@
 .singlemovie__container {
   color: lightgray;
   display: flex;
-  background-color: red;
-  width: 70%;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 60%;
   height: 80%;
   margin-left: 3%;
-  flex-wrap: wrap;
+  padding: 20px;
+  padding-top: 40px;
+}
+
+.singlemovie__movieDetails {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 150px;
+  justify-content: space-between;
+  font-family: "Oswald", sans-serif;
+}
+
+.singlemovie__movieDetails > h1 {
+  font-size: xxx-large;
+}
+
+.singlemovie__movieDetails > p {
+  font-size: 20px;
+}
+
+.bottom {
+  width: 30%;
+  border-bottom: 1px solid rgb(110, 109, 109);
 }

@@ -1,8 +1,7 @@
 import React, { forwardRef } from "react";
 import "./Moviecard.css";
 import StarIcon from "@material-ui/icons/Star";
-import { useHistory, useLocation } from "react-router-dom";
-import queryString from "query-string";
+import { useHistory } from "react-router-dom";
 
 const Moviecard = forwardRef(({ movie }, ref) => {
   const history = useHistory();
@@ -18,8 +17,6 @@ const Moviecard = forwardRef(({ movie }, ref) => {
 
   const year = (movie["first_air_date"] || movie["release_date"]).split("-")[0];
   const rating = movie.vote_average;
-
-  const loc = queryString.parse(useLocation().search).q;
 
   const clickHandler = (event) => {
     event.preventDefault();

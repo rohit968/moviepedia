@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "../axios";
+import API_KEY from "../api";
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
 import "./SingleMovie.css";
 
 const SingleMovie = () => {
   const [singleMovie, setSingleMovie] = useState({});
-  const API_KEY = "eb8ba0a881d77dfb687cbaf46459ee4e";
 
   const loc = queryString.parse(useLocation().search).d;
 
@@ -27,19 +27,41 @@ const SingleMovie = () => {
 
   console.log(singleMovie);
 
+  const title =
+    singleMovie?.title || singleMovie?.name || singleMovie?.original_name;
+
+  // const year = (singleMovie?.first_air_date || singleMovie?.release_date).split(
+  //   "-"
+  // )[0];
+
+  const rating = singleMovie.vote_average;
+
   return (
-    <div className="singlemovie">
-      <div
-        className="singlemovie__container"
-        style={{
-          backgroundSize: "cover",
-          backgroundImage: `url(${image})`,
-          backgroundPosition: "cover cover",
-          height: 1024,
-        }}
-      >
-        <div className="m" style={{ height: 1024 }}></div>
-        <h1>Hello</h1>
+    <div
+      className="singlemovie"
+      //   background:
+      //     /* top, transparent black, faked with gradient */
+      //     linear-gradient(
+      //       rgba(0, 0, 0, 0.7),
+      //       rgba(0, 0, 0, 0.7)
+      //     ),
+      //     /* bottom, image */
+      //     url(http://fc02.deviantart.net/fs71/i/2011/274/6/f/ocean__sky__stars__and_you_by_muddymelly-d4bg1ub.png);
+      // }
+      style={{
+        backgroundSize: "cover",
+        backgroundImage: `linear-gradient(
+          rgba(0, 0, 0, 0.7), 
+          rgba(0, 0, 0, 0.7)
+        ),url(${image})`,
+        backgroundPosition: "cover cover",
+      }}
+    >
+      <div className="singlemovie__container">
+        <div className="singlemovie__movieDetails">
+          <h1>{title}</h1>
+          <p></p>
+        </div>
       </div>
     </div>
   );

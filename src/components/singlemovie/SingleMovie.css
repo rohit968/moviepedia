@@ -1,13 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap");
+
+.singlemovie {
+  height: 90vh;
+  width: 100%;
+}
+
 .singlemovie__container {
-  z-index: 1;
-}
-
-.m {
-  opacity: 0.2;
-  z-index: 2;
-}
-
-.singlemovie__container > h1 {
-  opacity: 1 !important;
-  color: white;
+  color: lightgray;
+  display: flex;
+  background-color: red;
+  width: 70%;
+  height: 80%;
+  margin-left: 3%;
+  flex-wrap: wrap;
 }

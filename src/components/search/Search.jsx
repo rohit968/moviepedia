@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "../axios";
+import API_KEY from "../api";
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
 import Moviecard from "../moviecard/Moviecard";
@@ -8,7 +9,6 @@ import "./Search.css";
 
 const Search = ({ input }) => {
   const [searchMovies, setSearchMovies] = useState([]);
-  const API_KEY = "eb8ba0a881d77dfb687cbaf46459ee4e";
 
   const loc = queryString.parse(useLocation().search).q;
 

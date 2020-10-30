@@ -27,5 +27,10 @@
 }
 
 .navbar__active {
-  border: 1px solid palevioletred;
+  background-color: #f50057;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 6px;
+  padding-right: 6px;
+  border-radius: 5px;
 }

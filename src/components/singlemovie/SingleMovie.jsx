@@ -4,12 +4,13 @@ import API_KEY from "../api";
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
 import "./SingleMovie.css";
+import { Button } from "@material-ui/core";
 
 const SingleMovie = () => {
   const [singleMovie, setSingleMovie] = useState({});
   const [data, setData] = useState({
     year: null,
-    genres: null,
+    genres: [],
   });
 
   const loc = queryString.parse(useLocation().search).d;
@@ -29,19 +30,14 @@ const SingleMovie = () => {
     fetchMovie();
   }, [loc]);
 
-  console.log(singleMovie);
+  const rating = singleMovie.vote_average;
 
   const title =
     singleMovie?.title || singleMovie?.name || singleMovie?.original_name;
 
   const overview = singleMovie.overview;
 
-  // const genres = singleMovie.genres;
-  // console.log(genres);
-
-  // genres.map((genre) => {
-  //   console.log(genre.name);
-  // });
+  const IMDB_link = `https://www.imdb.com/title/${singleMovie.imdb_id}/?ref_=nv_sr_srsg_0`;
 
   useEffect(() => {
     if (
@@ -55,12 +51,6 @@ const SingleMovie = () => {
       setData({ year, genres });
     }
   }, [singleMovie]);
-
-  // const year = (singleMovie?.first_air_date || singleMovie?.release_date).split(
-  //   "-"
-  // )[0];
-
-  const rating = singleMovie.vote_average;
 
   return (
     <div
@@ -77,13 +67,33 @@ const SingleMovie = () => {
       <div className="singlemovie__container">
         <div className="singlemovie__movieDetails">
           <h1>{title}</h1>
-          <p>{overview}</p>
+          <div>
+            <p>{overview}</p>
+            <div className="bottom"></div>
+          </div>
+        </div>
+        <div className="singlemovie__genres">
           {data.genres.map((genre) => {
-            return <p>{genre}</p>;
+            return (
+              <p style={{ marginLeft: "10px" }} key={genre.id}>
+                {genre.name}
+              </p>
+            );
           })}
         </div>
-        <div className="bottom"></div>
-        <div className="genres"></div>
+        <a href={IMDB_link} target="_blank" rel="noopener noreferrer">
+          <Button
+            variant="contained"
+            color="secondary"
+            className="singlemovie__buttonIMDB"
+          >
+            Show IMDB
+          </Button>
+        </a>
+        <div className="rating">
+          <h4>Rating</h4>
+          <p>{rating} / 10</p>
+        </div>
       </div>
     </div>
   );

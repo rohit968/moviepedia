@@ -21,7 +21,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 150px;
+  height: 200px;
   justify-content: space-between;
   font-family: "Oswald", sans-serif;
 }
@@ -30,11 +30,54 @@
   font-size: xxx-large;
 }
 
-.singlemovie__movieDetails > p {
+.singlemovie__movieDetails > div > p {
   font-size: 20px;
+  margin-left: -2px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.singlemovie__movieDetails > div > p::-webkit-scrollbar {
+  display: none;
 }
 
 .bottom {
   width: 30%;
+  padding-top: 20px;
   border-bottom: 1px solid rgb(110, 109, 109);
+}
+
+.singlemovie__genres {
+  display: flex;
+  max-width: 60%;
+  justify-content: space-between;
+  overflow-y: scroll;
+}
+
+.singlemovie__genres::-webkit-scrollbar {
+  display: none;
+}
+
+.singlemovie__container > a {
+  text-decoration: none;
+}
+
+.rating {
+  width: 130px;
+  height: 50px;
+  background-color: #111;
+  border-left: 5px solid #f50057;
+  display: flex;
+  justify-content: space-evenly;
+  letter-spacing: 3px;
+  flex-direction: column;
+}
+
+.rating > h4,
+p {
+  margin-left: 10px;
+}
+
+.rating > p {
+  color: #f50057;
 }

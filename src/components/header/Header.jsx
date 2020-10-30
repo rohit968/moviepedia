@@ -11,6 +11,7 @@ const Header = ({ setInput }) => {
   const clickHandler = (e) => {
     setInput(searchInput);
     history.push(`/search?q=${searchInput}`);
+    setSearchInput("");
   };
 
   return (

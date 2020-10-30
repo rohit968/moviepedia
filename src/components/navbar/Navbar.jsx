@@ -5,40 +5,40 @@ import "./Navbar.css";
 const Navbar = ({ setOption }) => {
   const [active, setActive] = useState(false);
 
-  const toggleClass = () => {
-    setActive(!active);
+  const toggleClass = (name) => {
+    setActive(name);
   };
 
   return (
     <div className="navbar">
       <h2
-        className={active ? "navbar__active" : null}
+        className={active === "nowplaying" ? "navbar__active" : null}
         onClick={() => {
-          return setOption(requests.fetchTrending), toggleClass;
+          return setOption(requests.fetchTrending), toggleClass("nowplaying");
         }}
       >
         Now Playing
       </h2>
       <h2
-        className={active ? "navbar__active" : null}
+        className={active === "upcoming" ? "navbar__active" : null}
         onClick={() => {
-          return setOption(requests.fetchUpcoming), toggleClass;
+          return setOption(requests.fetchUpcoming), toggleClass("upcoming");
         }}
       >
         Upcoming
       </h2>
       <h2
-        className={active ? "navbar__active" : null}
+        className={active === "toprated" ? "navbar__active" : null}
         onClick={() => {
-          return setOption(requests.fetchTopRated), toggleClass;
+          return setOption(requests.fetchTopRated), toggleClass("toprated");
         }}
       >
         Top Rated
       </h2>
       <h2
-        className={active ? "navbar__active" : null}
+        className={active === "popular" ? "navbar__active" : null}
         onClick={() => {
-          return setOption(requests.fetchPopular), toggleClass;
+          return setOption(requests.fetchPopular), toggleClass("popular");
         }}
       >
         Popular

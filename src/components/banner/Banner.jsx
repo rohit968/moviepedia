@@ -5,7 +5,6 @@ import "./Banner.css";
 
 const Banner = () => {
   const [trendingMovies, setTrendingMovies] = useState({});
-  const [genres, setGenres] = useState({});
 
   const image_url = "https://image.tmdb.org/t/p/original";
 
@@ -21,14 +20,6 @@ const Banner = () => {
     fetchMovies();
   }, []);
 
-  useEffect(() => {
-    async function fetchGenre() {
-      const request = await axios.get(requests.fetchGenres);
-      setGenres(request.data.genres);
-    }
-    fetchGenre();
-  }, []);
-
   function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   }
@@ -42,7 +33,7 @@ const Banner = () => {
       style={{
         backgroundSize: "cover",
         backgroundImage: `url(${image})`,
-        backgroundPosition: "cover cover",
+        backgroundPosition: "center cover",
       }}
     >
       <div className="banner__contents">

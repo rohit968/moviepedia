@@ -43,8 +43,7 @@
 }
 
 .banner__button:hover {
-  color: #000;
-  background-color: #e6e6e6;
+  background-color: #f50057;
   transition: all 0.2s;
 }
 
